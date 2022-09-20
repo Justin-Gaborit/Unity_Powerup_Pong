@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ball
-  - powerup_speed
+  - player_1
+  - player_2
+  - powerup_size
   layers:
   - Default
   - TransparentFX

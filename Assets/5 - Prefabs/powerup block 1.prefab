@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1686981091571727217}
   m_Layer: 0
   m_Name: powerup block 1
-  m_TagString: powerup_speed
+  m_TagString: powerup_size
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,5 +146,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b39450b96bffd47b240d029c31821c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game_manager_script: {fileID: 0}
-  game_manager_obj: {fileID: 0}

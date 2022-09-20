@@ -9,6 +9,12 @@ public class ball : MonoBehaviour
     public float ball_y;
     public Vector2 ball_vector;
 
+    public bool lasthit_player_1;
+    public bool lasthit_player_2;
+
+    public GameObject Player1_paddle;
+    public GameObject Player2_paddle;
+
     private Rigidbody2D _rigidbody;
 
     public GameManager game_manager_script;
@@ -19,6 +25,8 @@ public class ball : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         game_manager_obj = GameObject.Find("GameManager");
         game_manager_script = game_manager_obj.GetComponent<GameManager>();
+        lasthit_player_1 = false;
+        lasthit_player_2 = false;
     }
 
     private void Start()
@@ -57,26 +65,56 @@ public class ball : MonoBehaviour
         ball_vector = new Vector2(ball_x, ball_y);
     }
 
-    private void OnCollisionEnter2D(Collision2D powerup_speed_collision)
+    private void OnCollisionEnter2D(Collision2D powerup_paddle_collision)
     {
-        if (powerup_speed_collision.gameObject.tag == "powerup_speed")
+        if (powerup_paddle_collision.gameObject.tag == "player_1")
         {
-            //float x = _rigidbody.velocity.x;
-            //float y = _rigidbody.velocity.y;
-            
-            
+            lasthit_player_1 = true;
+            lasthit_player_2 = false;
+        }
 
-            StartCoroutine(SpeedCountDown());
+        if (powerup_paddle_collision.gameObject.tag == "player_2")
+        {
+            lasthit_player_1 = false;
+            lasthit_player_2 = true;
+        }
+
+        if (powerup_paddle_collision.gameObject.tag == "powerup_size" && lasthit_player_1 == true)
+        {
+            Player1_paddle.transform.localScale = new Vector3(0.2f, 3f, 0f);
+            StartCoroutine(PaddleSizeCountDown_1());
+        }
+
+        if (powerup_paddle_collision.gameObject.tag == "powerup_size" && lasthit_player_2 == true)
+        {
+            Player2_paddle.transform.localScale = new Vector3(0.2f, 3f, 0f);
+            StartCoroutine(PaddleSizeCountDown_2());
         }
     }
 
-    IEnumerator SpeedCountDown()
+    public void player_1_largepaddle()
     {
-        yield return new WaitForSeconds(5);
-        _rigidbody.velocity = _rigidbody.velocity * -1.5f;
+        Player1_paddle.transform.localScale = new Vector3(0.2f, 3f, 0f);
+    }
+
+    IEnumerator PaddleSizeCountDown_1()
+    {
+        yield return new WaitForSeconds(10);
+
+        Player1_paddle.transform.localScale = new Vector3(0.2f, 1.5f, 0f);
         game_manager_script.countdown_start = true;
 
-        StopCoroutine(SpeedCountDown());
+        StopCoroutine(PaddleSizeCountDown_1());
+    }
+
+    IEnumerator PaddleSizeCountDown_2()
+    {
+        yield return new WaitForSeconds(10);
+
+        Player2_paddle.transform.localScale = new Vector3(0.2f, 1.5f, 0f);
+        game_manager_script.countdown_start = true;
+
+        StopCoroutine(PaddleSizeCountDown_2());
     }
 
 }
