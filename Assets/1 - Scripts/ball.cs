@@ -49,7 +49,7 @@ public class ball : MonoBehaviour
                                         Random.Range(0.5f, 1.0f);
 
         Vector2 direction = new Vector2(x, y);
-        _rigidbody.AddForce(direction * this.speed);
+        _rigidbody.AddForce(direction * this.speed * 1.5f);
     }
 
     public void AddForce(Vector2 force)
