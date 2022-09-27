@@ -90,13 +90,21 @@ public class ball : MonoBehaviour
             Player2_paddle.transform.localScale = new Vector3(0.2f, 3f, 0f);
             StartCoroutine(PaddleSizeCountDown_2());
         }
+
+        if (powerup_paddle_collision.gameObject.tag == "powerup_paddlespeed" && lasthit_player_1 == true)
+        {
+            Player1_paddle.GetComponent<player_1_paddle>().speed = 25;
+            StartCoroutine(PaddleSpeedCountDown_1());
+        }
+
+        if (powerup_paddle_collision.gameObject.tag == "powerup_paddlespeed" && lasthit_player_2 == true)
+        {
+            Player2_paddle.GetComponent<player_2_paddle>().speed = 25;
+            StartCoroutine(PaddleSpeedCountDown_2());
+        }
     }
 
-    public void player_1_largepaddle()
-    {
-        Player1_paddle.transform.localScale = new Vector3(0.2f, 3f, 0f);
-    }
-
+#region Powerup 1 Countdown
     IEnumerator PaddleSizeCountDown_1()
     {
         yield return new WaitForSeconds(10);
@@ -116,5 +124,25 @@ public class ball : MonoBehaviour
 
         StopCoroutine(PaddleSizeCountDown_2());
     }
+    #endregion
 
+    #region Powerup 2 Countdown
+    IEnumerator PaddleSpeedCountDown_1()
+    {
+        yield return new WaitForSeconds(15);
+
+        Player1_paddle.GetComponent<player_1_paddle>().speed = 10;
+
+        StopCoroutine(PaddleSizeCountDown_1());
+    }
+
+    IEnumerator PaddleSpeedCountDown_2()
+    {
+        yield return new WaitForSeconds(15);
+
+        Player1_paddle.GetComponent<player_2_paddle>().speed = 10;
+
+        StopCoroutine(PaddleSizeCountDown_2());
+    }
+    #endregion
 }

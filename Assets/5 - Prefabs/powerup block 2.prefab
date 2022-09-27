@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1686981091571727217}
   m_Layer: 0
   m_Name: powerup block 2
-  m_TagString: powerup_size
+  m_TagString: powerup_paddlespeed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
