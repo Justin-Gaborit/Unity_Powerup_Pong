@@ -82,6 +82,7 @@ public class MainMenuNav : MonoBehaviour
         if (MenuStateVal == 3 && Input.GetKeyDown(KeyCode.X))
         {
             SceneManager.LoadScene("credits_scene");
+
         }
 
 
