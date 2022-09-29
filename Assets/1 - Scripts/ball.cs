@@ -39,7 +39,8 @@ public class ball : MonoBehaviour
         _rigidbody.position = Vector3.zero;
         _rigidbody.velocity = Vector3.zero;
 
-        AddStartingForce();
+        //AddStartingForce();
+        StartCoroutine(StartCountDown());
     }
 
     private void AddStartingForce()
@@ -102,6 +103,18 @@ public class ball : MonoBehaviour
             Player2_paddle.GetComponent<player_2_paddle>().speed = 25;
             StartCoroutine(PaddleSpeedCountDown_2());
         }
+
+        if (powerup_paddle_collision.gameObject.tag == "powerup_shrink" && lasthit_player_1 == true)
+        {
+            Player2_paddle.transform.localScale = new Vector3(0.2f, 0.7f, 0f);
+            StartCoroutine(PaddleShrinkCountDown_2());
+        }
+
+        if (powerup_paddle_collision.gameObject.tag == "powerup_shrink" && lasthit_player_2 == true)
+        {
+            Player1_paddle.transform.localScale = new Vector3(0.2f, 0.7f, 0f);
+            StartCoroutine(PaddleShrinkCountDown_1());
+        }
     }
 
 #region Powerup 1 Countdown
@@ -126,12 +139,12 @@ public class ball : MonoBehaviour
     }
     #endregion
 
-    #region Powerup 2 Countdown
+#region Powerup 2 Countdown
     IEnumerator PaddleSpeedCountDown_1()
     {
         yield return new WaitForSeconds(15);
 
-        Player1_paddle.GetComponent<player_1_paddle>().speed = 10;
+        Player1_paddle.GetComponent<player_1_paddle>().speed = 12.5f;
 
         StopCoroutine(PaddleSizeCountDown_1());
     }
@@ -140,9 +153,38 @@ public class ball : MonoBehaviour
     {
         yield return new WaitForSeconds(15);
 
-        Player1_paddle.GetComponent<player_2_paddle>().speed = 10;
+        Player1_paddle.GetComponent<player_2_paddle>().speed = 12.5f;
 
         StopCoroutine(PaddleSizeCountDown_2());
     }
     #endregion
+
+#region Powerup 3 Countdown
+    IEnumerator PaddleShrinkCountDown_1()
+    {
+        yield return new WaitForSeconds(10);
+
+        Player1_paddle.transform.localScale = new Vector3(0.2f, 1.5f, 0f);
+
+        StopCoroutine(PaddleShrinkCountDown_1());
+    }
+
+    IEnumerator PaddleShrinkCountDown_2()
+    {
+        yield return new WaitForSeconds(10);
+
+        Player2_paddle.transform.localScale = new Vector3(0.2f, 1.5f, 0f);
+
+        StopCoroutine(PaddleShrinkCountDown_2());
+    }
+#endregion
+
+    IEnumerator StartCountDown()
+    {
+        yield return new WaitForSeconds(3.5f);
+
+        AddStartingForce();
+
+        StopCoroutine(StartCountDown());
+    }
 }

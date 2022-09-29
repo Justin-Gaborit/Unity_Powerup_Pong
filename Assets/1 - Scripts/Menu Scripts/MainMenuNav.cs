@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuNav : MonoBehaviour
 {
+    public AudioSource SFX;
+
     //establish button objects
     public GameObject PlayButton_obj;
     public GameObject TutorialButton_obj;
@@ -21,6 +23,7 @@ public class MainMenuNav : MonoBehaviour
 
     void Awake()
     {
+        SFX = GameObject.Find("Select").GetComponent<AudioSource>();
 
         //get button objects
         PlayButton_obj = GameObject.Find("playButton");
@@ -43,10 +46,12 @@ public class MainMenuNav : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.DownArrow))
         {
             MenuStateVal++;
+            SFX.Play();
         }
         else if (Input.GetKeyUp(KeyCode.UpArrow))
         {
             MenuStateVal--;
+            SFX.Play();
         }
 
         if (MenuStateVal > 3)
@@ -60,7 +65,7 @@ public class MainMenuNav : MonoBehaviour
 
         if (MenuStateVal == 1)
         {
-            StartSelected();
+            StartSelected();      
         }
         else if (MenuStateVal == 2)
         {

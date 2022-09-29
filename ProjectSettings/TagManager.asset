@@ -9,6 +9,7 @@ TagManager:
   - player_2
   - powerup_size
   - powerup_paddlespeed
+  - powerup_shrink
   layers:
   - Default
   - TransparentFX
