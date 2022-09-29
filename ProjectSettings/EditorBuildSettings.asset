@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/3 - Scenes/pong_game_scene.unity
     guid: 65e1c23d87178584ea614191ae989e4d
   - enabled: 1
-    path: Assets/Scenes/MainMenuScene.unity
+    path: Assets/3 - Scenes/MainMenuScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/3 - Scenes/credits_scene.unity
@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/3 - Scenes/tutorial_scene.unity
     guid: c9799a13d45f8974c8d6fd3754b1797f
+  - enabled: 1
+    path: Assets/3 - Scenes/player_1_win_scene.unity
+    guid: eacf4fbf985512c408ed4a97cab04084
+  - enabled: 1
+    path: Assets/3 - Scenes/player_2_win_scene.unity
+    guid: 5f63789bbe1546042ab771c3daab6a38
   m_configObjects: {}

@@ -24,7 +24,7 @@ public class scoreplayer2 : MonoBehaviour
 
         if (player2Scorevalue > 2)
         {
-            SceneManager.LoadScene("pong_game_scene");
+            SceneManager.LoadScene("player_2_win_scene");
         }
     }
 
