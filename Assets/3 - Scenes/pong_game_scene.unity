@@ -1557,7 +1557,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 4c7b11d2b206b7d4594f1460e53f6e15, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2436,7 +2436,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1382638075}
   - component: {fileID: 1382638076}
-  - component: {fileID: 1382638077}
   - component: {fileID: 1382638078}
   m_Layer: 0
   m_Name: wall_right
@@ -2486,18 +2485,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 10}
   m_EdgeRadius: 0
---- !u!114 &1382638077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1382638074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deefa8bb558fa7a4293ce869a08b7256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1382638078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2554,7 +2541,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1404388737}
   - component: {fileID: 1404388738}
-  - component: {fileID: 1404388739}
   - component: {fileID: 1404388740}
   m_Layer: 0
   m_Name: wall_left
@@ -2604,18 +2590,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 10}
   m_EdgeRadius: 0
---- !u!114 &1404388739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404388736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deefa8bb558fa7a4293ce869a08b7256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1404388740
 MonoBehaviour:
   m_ObjectHideFlags: 0
