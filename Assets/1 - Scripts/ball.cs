@@ -5,7 +5,9 @@ using UnityEngine;
 public class ball : MonoBehaviour
 {
     public float speed = 200.0f;
+    [SerializeField]
     public float ball_x;
+    [SerializeField]
     public float ball_y;
     public Vector2 ball_vector;
 
@@ -60,9 +62,15 @@ public class ball : MonoBehaviour
 
     private void Update()
     {
-        ball_x = _rigidbody.velocity.x;
-        ball_y = _rigidbody.velocity.y;
-
+        if(lasthit_player_1 == true)
+        {
+            ball_x = _rigidbody.velocity.x + 20;
+        }
+        
+        if(lasthit_player_2 == true)
+        {
+            ball_y = _rigidbody.velocity.y - 20;
+        }
         ball_vector = new Vector2(ball_x, ball_y);
     }
 
