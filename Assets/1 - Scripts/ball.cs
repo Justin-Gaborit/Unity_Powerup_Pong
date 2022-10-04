@@ -145,6 +145,7 @@ public class ball : MonoBehaviour
         yield return new WaitForSeconds(15);
 
         Player1_paddle.GetComponent<player_1_paddle>().speed = 12.5f;
+        game_manager_script.countdown_start = true;
 
         StopCoroutine(PaddleSizeCountDown_1());
     }
@@ -154,6 +155,7 @@ public class ball : MonoBehaviour
         yield return new WaitForSeconds(15);
 
         Player1_paddle.GetComponent<player_2_paddle>().speed = 12.5f;
+        game_manager_script.countdown_start = true;
 
         StopCoroutine(PaddleSizeCountDown_2());
     }
@@ -165,6 +167,7 @@ public class ball : MonoBehaviour
         yield return new WaitForSeconds(10);
 
         Player1_paddle.transform.localScale = new Vector3(0.2f, 1.5f, 0f);
+        game_manager_script.countdown_start = true;
 
         StopCoroutine(PaddleShrinkCountDown_1());
     }
@@ -174,6 +177,7 @@ public class ball : MonoBehaviour
         yield return new WaitForSeconds(10);
 
         Player2_paddle.transform.localScale = new Vector3(0.2f, 1.5f, 0f);
+        game_manager_script.countdown_start = true;
 
         StopCoroutine(PaddleShrinkCountDown_2());
     }
