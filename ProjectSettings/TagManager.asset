@@ -10,6 +10,7 @@ TagManager:
   - powerup_size
   - powerup_paddlespeed
   - powerup_shrink
+  - Obstacles
   layers:
   - Default
   - TransparentFX

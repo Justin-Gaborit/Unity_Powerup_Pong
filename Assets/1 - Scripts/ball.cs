@@ -21,6 +21,7 @@ public class ball : MonoBehaviour
 
     public GameManager game_manager_script;
     public GameObject game_manager_obj;
+    public GameObject Obstacles_obj;
 
     private void Awake()
     {
@@ -33,6 +34,7 @@ public class ball : MonoBehaviour
 
     private void Start()
     {
+        Obstacles_obj.SetActive(false);
         ResetPosition();
     }
 
@@ -123,6 +125,18 @@ public class ball : MonoBehaviour
             Player1_paddle.transform.localScale = new Vector3(0.2f, 0.7f, 0f);
             StartCoroutine(PaddleShrinkCountDown_1());
         }
+
+        if (powerup_paddle_collision.gameObject.tag == "Obstacles" && lasthit_player_2 == true)
+        {
+            Obstacles_obj.SetActive(true);
+            StartCoroutine(HideObstaclesCountdown());
+        }
+
+        if (powerup_paddle_collision.gameObject.tag == "Obstacles" && lasthit_player_1 == true)
+        {
+            Obstacles_obj.SetActive(true);
+            StartCoroutine(HideObstaclesCountdown());
+        }
     }
 
 #region Powerup 1 Countdown
@@ -188,6 +202,18 @@ public class ball : MonoBehaviour
         game_manager_script.countdown_start = true;
 
         StopCoroutine(PaddleShrinkCountDown_2());
+    }
+    #endregion
+
+#region Powerup 4 Countdown
+    IEnumerator HideObstaclesCountdown()
+    {
+        yield return new WaitForSeconds(30);
+
+        Obstacles_obj.SetActive(false);
+        game_manager_script.countdown_start = true;
+
+        StopCoroutine(HideObstaclesCountdown());
     }
 #endregion
 
